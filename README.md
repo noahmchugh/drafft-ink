@@ -74,7 +74,7 @@ cargo install drafftink     # from crates.io; the hand-drawn fonts are drawn wit
 Or build it from the repository, which has the hand-drawn fonts:
 
 ```sh
-git clone https://github.com/PatWie/drafft-ink.git && cd drafft-ink
+git clone https://github.com/noahmchugh/drafft-ink.git && cd drafft-ink
 cargo run --release -p drafftink --features hand-fonts     # or scripts/run-native.sh
 ```
 

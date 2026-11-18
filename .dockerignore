@@ -1,0 +1,12 @@
+# Build context for the Dockerfile. The build needs the full source tree
+# (crates, apps, web, scripts, packaging) but none of the local state.
+.git
+target/
+dist/
+dist-release/
+data/
+node_modules/
+*.log
+__pycache__/
+.dockerignore
+docker-compose.yml

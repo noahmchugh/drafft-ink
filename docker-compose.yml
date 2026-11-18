@@ -1,0 +1,37 @@
+# Drafft.ink (fork) — personal instance.
+#
+#   docker compose up -d --build
+#
+# Deliberately NOT a public deployment yet:
+# - The port is published on the host's loopback only. Reach it at
+#   http://127.0.0.1:3030 on the host, or put a TLS-terminating reverse proxy
+#   (with the login gate) in front before exposing it further. The app has no
+#   accounts of its own; the proxy is where a login belongs.
+# - Rooms are stored in the `drafft-data` volume (SQLite). Back it up with
+#   `sqlite3 .backup`, not by copying the live file (docs/server.md).
+#
+# Collaboration auth token (optional, gates /ws room joins — it does not gate
+# the web page itself): put one or more comma-separated tokens in a `.env`
+# file next to this one as DRAFFTINK_AUTH_TOKENS=... and uncomment the
+# environment line below. Anyone who joins a room also needs the token typed
+# into the Collaborate dialog.
+
+services:
+  drafftink:
+    build:
+      context: .
+      args:
+        DRAFFTINK_COMMIT: ${DRAFFTINK_COMMIT:-}
+    image: drafftink-fork:local
+    container_name: drafftink
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3030:3030"
+    environment:
+      DRAFFTINK_SOURCE_URL: https://github.com/noahmchugh/drafft-ink
+      # DRAFFTINK_AUTH_TOKENS: ${DRAFFTINK_AUTH_TOKENS:-}
+    volumes:
+      - drafft-data:/data
+
+volumes:
+  drafft-data:
