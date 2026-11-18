@@ -8,7 +8,7 @@ homepage.workspace = true
 rust-version.workspace = true
 description = "Drafft.ink for the desktop: an infinite canvas whiteboard with a hand-drawn look, built with Rust, Vello and egui."
 readme = "README.md"
-documentation = "https://github.com/PatWie/drafft-ink/tree/main/docs"
+documentation = "https://github.com/noahmchugh/drafft-ink/tree/main/docs"
 keywords = ["whiteboard", "infinite-canvas", "drawing", "wgpu", "collaboration"]
 categories = ["graphics", "gui", "multimedia::images"]
 # `cargo install drafftink` builds this package from crates.io: only the launcher, its test of the subcommands, its build script and the icon.
@@ -65,8 +65,11 @@ exclude = ["deprecated/*"]
 version = "0.2.0"
 edition = "2024"
 license = "AGPL-3.0-only"
-repository = "https://github.com/PatWie/drafft-ink"
-homepage = "https://drafft.ink"
+repository = "https://github.com/noahmchugh/drafft-ink"
+# No public site for this fork yet: the repository stands in as the homepage until it has one.
+# The repository is also the server's default AGPL source offer (apps/drafftink-server reads
+# CARGO_PKG_REPOSITORY), so it must name this fork, not the upstream project.
+homepage = "https://github.com/noahmchugh/drafft-ink"
 rust-version = "1.91"
 
 [workspace.dependencies]
